@@ -11,7 +11,7 @@ export function UserList() {
 
   const filteredUsers = useMemo(() => {
     return users.filter((user) =>
-      user.name.toLowerCase().includes(search.toLowerCase()),
+      user.name.toLowerCase().includes(search.toLowerCase())
     );
   }, [users, search]);
 
@@ -19,7 +19,7 @@ export function UserList() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const visibleUsers = filteredUsers.slice(
     startIndex,
-    startIndex + itemsPerPage,
+    startIndex + itemsPerPage
   );
 
   return (
@@ -31,7 +31,7 @@ export function UserList() {
           </p>
           <SearchBox setSearch={setSearch} search={search} />
         </div>
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between w-full h-full">
           <TableComponent data={visibleUsers} />
           <div className="flex w-full items-center justify-between py-3 sm:px-6">
             <Pagination

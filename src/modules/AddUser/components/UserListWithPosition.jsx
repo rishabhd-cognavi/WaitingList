@@ -22,7 +22,7 @@ export function UserListWithPosition() {
           loadItems();
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     const currentRef = loadRef.current;
@@ -44,7 +44,7 @@ export function UserListWithPosition() {
     setTimeout(() => {
       const nextItems = users.slice(
         visibleUsers.length,
-        visibleUsers.length + itemsSize,
+        visibleUsers.length + itemsSize
       );
       setVisibleUsers((prev) => [...prev, ...nextItems]);
       setIsLoading(false);
@@ -81,8 +81,10 @@ export function UserListWithPosition() {
             </div>
           ) : visibleUsers.length < users.length ? (
             <div className="text-sm text-gray-500">Scroll to load more</div>
-          ) : (
+          ) : users.length > 0 ? (
             <div className="text-sm text-gray-500">End of waitlist</div>
+          ) : (
+            <div className="text-sm text-gray-500">No one Registered Yet</div>
           )}
         </div>
       </div>
